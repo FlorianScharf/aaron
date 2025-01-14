@@ -5,198 +5,434 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Steckbrief für Aaron – Die chilligste Glücksfeder ever 🌱</title>
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet"> <!-- Schriftart angelehnt an Programmierstil -->
-    <style>
-        /* Allgemeine Einstellungen */
-        body {
-            font-family: 'Courier Prime', monospace; /* Schriftart an R angelehnt */
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-items: center; /* Container vertikal und horizontal zentrieren */
-            min-height: 100vh; /* Damit der Container die volle Höhe des Bildschirms einnimmt */
-        }
 
-        /* Container für die gesamte Seite */
-        .container {
-            width: 80%;
-            margin-top: 20px;
-            max-width: 1200px;
-            background-color: white;
-            border: 2px solid #333;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: left; /* Text innerhalb des Containers linksbündig */
-        }
+<style>
+    /* Allgemeine Einstellungen */
+    body {
+        font-family: 'Courier Prime', monospace; /* Schriftart an R angelehnt */
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+        line-height: 1.6;
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Container vertikal und horizontal zentrieren */
+        min-height: 100vh; /* Damit der Container die volle Höhe des Bildschirms einnimmt */
+    }
+	
+* {
+    cursor: default !important; /* Verhindert das Ändern des Mauszeigers */
+}
 
-        /* Titelbereich (Zeitungstitelseite) */
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    /* Container für die gesamte Seite */
+    .container {
+        width: 80%;
+        margin-top: 20px;
+        max-width: 1200px;
+        background-color: white;
+        border: 2px solid #333;
+        padding: 30px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: left; /* Text innerhalb des Containers linksbündig */
+    }
 
-        .header h1 {
-            font-size: 3em;
-            margin: 0;
-            font-weight: bold;
-            color: #2c6e49;
-        }
+    /* Titelbereich (Zeitungstitelseite) */
+    .header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
 
-        .header h2 {
-            font-size: 1.5em;
-            color: #555;
-            font-style: italic;
-        }
+    .header h1 {
+        font-size: 3.5em;
+        margin: 0;
+        font-weight: bold;
+        color: #2c6e49;
+        transition: color 0.3s ease;
+    }
 
-        /* Bild von Aaron */
-        .image-container {
-            text-align: center;
-            margin: 20px 0;
-        }
 
-        .image-container img {
-            max-width: 300px;
-            width: 100%;
-            border-radius: 10px;
-            border: 3px solid #8B4513; /* Brauner Rand passend zum Stamm */
-        }
+    .header h2 {
+        font-size: 1.8em;
+        color: #555;
+        font-style: italic;
+        transition: font-style 0.3s ease;
+    }
 
-        /* Abschnitt für den Steckbrief */
-        .bio-section {
-            margin-top: 30px;
-        }
 
-        .bio-section h2 {
-            font-size: 1.8em;
-            color: #2c6e49;
-            border-bottom: 2px solid #2c6e49;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
+    /* Bild von Aaron */
+    .image-container {
+        text-align: center;
+        margin: 20px 0;
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+    }
 
-        .bio-section p {
-            font-size: 1.1em;
-            margin-bottom: 10px;
-        }
+    .image-container img {
+        max-width: 300px;
+        width: 100%;
+        border-radius: 10px;
+        border: 3px solid #8B4513; /* Brauner Rand passend zum Stamm */
+    }
 
-        .bio-section ul {
-            font-size: 1.1em;
-            margin-bottom: 15px;
+    /* Animation für das Einblenden */
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
         }
-
-        .bio-section ul li {
-            margin-bottom: 5px;
+        100% {
+            opacity: 1;
         }
+    }
 
-        /* Fun Fact und Motto */
-        .fun-fact, .motto {
-            margin-top: 30px;
-            font-size: 1.2em;
-            font-style: italic;
-            color: #555;
-        }
+    /* Abschnitt für den Steckbrief */
+    .bio-section {
+        margin-top: 30px;
+    }
 
-        /* Footer für kleine Details */
-        .footer {
-            text-align: center;
-            font-size: 0.9em;
-            color: #777;
-            margin-top: 50px;
-            border-top: 2px solid #333;
-            padding-top: 10px;
-        }
+    .bio-section h2 {
+        font-size: 2em;
+        color: #2c6e49;
+        border-bottom: 2px solid #2c6e49;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+        transition: color 0.3s ease;
+    }
 
-        /* Fett und kursiv für Zitate */
-        .quote {
-            font-weight: bold;
-            font-style: italic;
-        }
 
-        /* Fett gedruckte Begriffe */
-        .bold {
-            font-weight: bold;
-        }
 
-    </style>
+    .bio-section p {
+        font-size: 1.2em;
+        margin-bottom: 15px;
+    }
+
+    .bio-section ul {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+
+    .bio-section ul li {
+        margin-bottom: 8px;
+    }
+
+    /* Fun Fact und Motto */
+    .fun-fact, .motto {
+        margin-top: 30px;
+        font-size: 1.2em;
+        font-style: italic;
+        color: #555;
+        transition: color 0.3s ease;
+    }
+
+    .fun-fact:hover, .motto:hover {
+        color: #2c6e49; /* Hover-Effekt für Fun Fact und Motto */
+    }
+
+    /* Footer für kleine Details */
+    .footer {
+        text-align: center;
+        font-size: 0.9em;
+        color: #777;
+        margin-top: 50px;
+        border-top: 2px solid #333;
+        padding-top: 10px;
+    }
+
+    /* Fett und kursiv für Zitate */
+    .quote {
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    /* Emojis für Überschriften und Warnhinweise */
+    .warning {
+        font-size: 1.2em;
+        color: #ff5733; /* Warme Farbe für Warnhinweise */
+    }
+
+    .warning::before {
+        content: "⚠️ ";
+    }
+
+    .heading-emoji {
+        font-size: 2em;
+    }
+
+    /* Umfrage-Container */
+    .survey-container {
+        margin-top: 30px;
+        background-color: #f0f8f0;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Umfrage-Überschrift */
+    .survey-container h3 {
+        font-size: 1.6em;
+        color: #2c6e49;
+        margin-bottom: 20px;
+    }
+
+    /* Umfrage Formular */
+    .survey-container form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Umfrage-Optionen */
+    .survey-popup-content label {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        font-weight: normal;
+        color: #333;
+        display: block; /* Um sicherzustellen, dass jedes Label eine neue Zeile beginnt */
+    }
+
+    /* Umfrage-Radiobutton */
+    .survey-container input[type="radio"] {
+        margin-right: 10px;
+    }
+
+    /* Umfrage-Abschicken-Button */
+    .survey-container input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 1.2em;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+
+    .survey-container input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    /* Erfolgsnachricht nach Umfrage */
+    .response-message {
+        font-size: 1.2em;
+        color: #4CAF50;
+        margin-top: 20px;
+        display: none;
+    }
+
+    /* Styles für das Popup */
+    .survey-popup {
+        display: none; /* Standardmäßig verborgen */
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .survey-popup-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 50%;
+        margin: 10% auto;
+        position: relative;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    .response-message {
+        display: none;
+        margin-top: 10px;
+        font-size: 16px;
+        color: green;
+    }
+
+    /* Styles für den Button */
+    .button-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .start-survey-btn {
+        background-color: #28a745; /* Grüner Farbton, passend zu Aarons Thema */
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 50px; /* Abgerundete Ecken */
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schlagschatten für einen modernen Effekt */
+    }
+
+    .start-survey-btn:hover {
+        background-color: #218838; /* Dunklerer Grünton beim Hover-Effekt */
+        transform: scale(1.05); /* Leichtes Vergrößern beim Hover */
+    }
+
+    .start-survey-btn:focus {
+        outline: none; /* Entfernt den Standard-Fokusrahmen */
+    }
+
+    .start-survey-btn:active {
+        background-color: #1e7e34; /* Noch dunklerer Grünton beim Klicken */
+        transform: scale(0.98); /* Leichtes Verkleinern beim Klicken */
+    }
+
+.small-text {
+    font-size: 0.6em;
+    color: #777;
+    display: block; /* Macht das Element zu einem Block-Element */
+    margin-top: 10px; /* Optionaler Abstand nach oben */
+    text-align: center; /* Zentriert den Text */
+    width: 100%; /* Stellt sicher, dass der Block die volle Breite einnimmt */
+}
+</style>
+
+
+
 </head>
 <body>
 
     <div class="container">
         <!-- Titelbereich -->
         <div class="header">
-            <h1>Steckbrief für Aaron</h1>
-            <h2>Die chilligste Glücksfeder ever 🌱</h2>
+            <h1>Steckbrief für Aaron 🌱</h1>
+            <h2>Die chilligste Glücksfeder ever</h2>
         </div>
 
         <!-- Bild von Aaron -->
         <div class="image-container">
-            <img src="./aaron-bild.jpg" alt="Bild von Aaron, der Glücksfeder">
+            <img src="aaron-bild.jpg" alt="Bild von Aaron, der Glücksfeder">
         </div>
-
+		
+        <!-- Button für die Umfrage -->
+        <div class="button-container">
+            <button id="start-survey-btn" class="start-survey-btn">Aarons Look bewerten 🔥</button>
+        </div>
+		
         <!-- Steckbrief -->
         <div class="bio-section">
-            <h2>Main Character Aaron</h2>
-            <p><span class="bold">Name:</span> Aaron</p>
+            <h2 class="heading-emoji">Main Character Aaron</h2>
+            <p><span class="bold">Name:</span> Aaron 🌱</p>
             <p><span class="bold">Art:</span> *Zamioculcas zamiifolia* – aka „Lucky Leaf Bro“</p>
             <p><span class="bold">Herkunft:</span> Straight outta Afrika (Ostafrika-Style)</p>
             <p><span class="bold">Hood:</span> Dein Zimmer, Büro oder irgendein Place, der nicht zu fancy sein muss</p>
 
-            <h2>Arons Lieblingsvibes</h2>
+            <h2 class="heading-emoji">Arons Lieblingsvibes</h2>
             <ul>
                 <li><span class="bold">Licht:</span> Chillig hell, aber bloß keine krasse Sonne – Aaron mag’s eher easy going im Halbschatten.</li>
                 <li><span class="bold">Temperatur:</span> 18–25 °C – also bitte keine sibirische Kälte, Aaron steht auf moderate Kuscheligkeit.</li>
                 <li><span class="bold">Luft:</span> Normale Raumluft reicht. Keine Sauna-Vibes nötig.</li>
             </ul>
 
-            <h2>Aarons Durst-Check</h2>
+            <h2 class="heading-emoji">Aarons Durst-Check</h2>
             <ul>
                 <li><span class="bold">Gießen:</span> Easy – wenn die Erde trocken ist, gönn ihm einen Schluck. Aber bitte kein <span class="quote">„Ich ertränke dich vor Liebe“</span>-Move.</li>
                 <li><span class="bold">Häufigkeit:</span> Sommer: alle 2–3 Wochen, Winter: so selten, wie du Bock auf Schnee hast.</li>
             </ul>
 
-            <h2>Aarons Futterroutine</h2>
+            <h2 class="heading-emoji">Aarons Futterroutine</h2>
             <ul>
                 <li><span class="bold">Dünger:</span> Alle 4–6 Wochen bisschen Powerfood in den Wurzeln (Flüssigdünger-Style). Winter? Pause – Aaron fastet dann.</li>
             </ul>
 
-            <h2>Aarons Base</h2>
+            <h2 class="heading-emoji">Aarons Base</h2>
             <ul>
                 <li><span class="bold">Erde:</span> Chillige Blumenerde mit bisschen Sand/Perlite, damit das Wasser gut abhaut – Aaron hasst Staunässe (Wurzelfäule = bad vibes).</li>
             </ul>
 
-            <h2>Makeover-Plan</h2>
+            <h2 class="heading-emoji">Makeover-Plan</h2>
             <ul>
                 <li><span class="bold">Umtopfen:</span> Alle 2–3 Jahre ’ne größere Bude für Aaron – er wächst, Bro! Frühling ist der beste Umzugsmonat.</li>
             </ul>
 
-            <h2>Aarons Warning-Signals</h2>
+            <h2 class="warning">Aarons Warning-Signals</h2>
             <ul>
                 <li><span class="bold">Gelbe Blätter:</span> <span class="quote">„Hör auf, mich zu fluten!“</span></li>
                 <li><span class="bold">Schlaffe Vibes:</span> <span class="quote">„Dude, ich hab Durst!“</span></li>
                 <li><span class="bold">Schädlinge:</span> Selten. Aber falls Spinnmilben oder so auftauchen, mach sie platt!</li>
             </ul>
 
-            <h2>Aarons Hobbys</h2>
+            <h2 class="heading-emoji">Aarons Hobbys</h2>
             <ul>
                 <li>Wasser speichern wie ein Camel – Survival Mode on!</li>
                 <li>Staub fangen – also gönn ihm mal ne Runde Feuchttuch-Action.</li>
             </ul>
 
-            <h2>Not-So-Fun Fact</h2>
+            <h2 class="heading-emoji">Not-So-Fun Fact</h2>
             <p>Aaron ist zwar ’ne pflegeleichte Legende, aber alle Teile sind giftig! Also sag deinen Homies (Kids oder Haustiere): <span class="quote">„Aaron ist nur zum Anschauen, nicht zum Snacken!“</span></p>
 
-            <h2>Aarons Motto</h2>
-            <p><span class="quote">„Bleib locker, ich mach schon mein Ding.“</span> 🌿</p>
+            <h2 class="heading-emoji">Aarons Motto</h2>
+            <p><span class="quote">„Bleib locker, ich mach schon mein Ding.“</span></p>
         </div>
 
         <!-- Footer -->
         <div class="footer">
-            <p>Steckbrief erstellt von deinem digitalen Assistenten.</p>
+            <p>Steckbrief erstellt von deinem digitalen Assistenten. 🤖</p>
+        </div>
+    </div>
+	
+    <!-- Interaktive Umfrage als Popup -->
+    <div id="survey-popup" class="survey-popup">
+        <div class="survey-popup-content">
+            <span id="close-popup" class="close-btn">&times;</span>
+            <h3>Wie geht's Aaron? 🌿</h3>
+            <p>Nur ehrliches Feedback beschert dem Main Character ewiges Leben!</p>
+            <form id="care-survey">
+                <label>
+                    <input type="checkbox" name="care" value="Super chill, alles läuft top!"> Super chill, alles läuft top! 🌱
+                </label>
+                <label>
+                    <input type="checkbox" name="care" value="Aaron wirkt etwas zu trocken..."> Aaron wirkt etwas zu trocken... 🌵
+                </label>
+                <label>
+                    <input type="checkbox" name="care" value="Irgendwie too much water, Bro!"> Irgendwie too much water, Bro! 💦
+                </label>
+                <label>
+                    <input type="checkbox" name="care" value="Die Sonne brennt zu hart!"> Die Sonne brennt zu hart! 🔥
+                </label>
+                <label>
+                    <input type="checkbox" name="care" value="Es könnte noch etwas heller sein..."> Es könnte noch etwas heller sein... 🌑
+                </label>
+                <input type="submit" value="Abstimmen">
+            </form>
+				<div id="survey-response" class="response-message">
+					Danke für deine Teilnahme! Wir setzen alles daran, Aarons Wohlbefinden zu fördern.
+					<br>					
+					<span class="small-text">Deine Antwort wurde erfolgreich nicht gespeichert.</span>
+				</div>
+
         </div>
     </div>
 
+    <script>
+        // Button für Umfrage anzeigen
+        document.getElementById('start-survey-btn').addEventListener('click', function() {
+            document.getElementById('survey-popup').style.display = 'block';
+        });
+
+        // Schließen des Popups
+        document.getElementById('close-popup').addEventListener('click', function() {
+            document.getElementById('survey-popup').style.display = 'none';
+        });
+
+        // JavaScript für Umfrage und Feedback
+        const appearanceSurvey = document.getElementById('care-survey');
+        const surveyResponse = document.getElementById('survey-response');
+
+        appearanceSurvey.addEventListener('submit', function (e) {
+            e.preventDefault();
+            surveyResponse.style.display = 'block';
+        });
+    </script>
+	
 </body>
 </html>
